@@ -12,29 +12,28 @@
 
 <body>
     <main class="container" style="height: 100%; display: flex;">
-        <form class="login-form" style="max-width: 30rem; margin: auto;">
+        <form class="login-form" style="max-width: 30rem; margin: auto;" id="foo">
             <div class="text-component text-center margin-bottom-md">
                 <h1>Login</h1>
             </div>
             <div class="margin-bottom-sm">
-                <label class="form-label margin-bottom-xxxs" for="input-email">E-mail ou usuário</label>
-                <input class="form-control width-100%" type="email" name="input-email" id="input-email">
+                <label class="form-label margin-bottom-xxxs">E-mail</label>
+                <input class="form-control width-100%" type="email" name="email">
             </div>
             <div class="margin-bottom-sm">
                 <div class="flex justify-between margin-bottom-xxxs">
-                    <label class="form-label" for="input-password">Senha</label>
+                    <label class="form-label">Senha</label>
                 </div>
-                <input class="form-control width-100%" type="password" name="input-password" id="input-password">
+                <input class="form-control width-100%" type="password" name="pass">
             </div>
-            <div class="margin-bottom-sm">
+            <div class="margin-bottom-md">
                 <button class="btn btn--primary btn--md width-100%">Entrar</button>
             </div>
-            <div class="text-center">
-                <p class="text-sm">Ainda não tem uma conta? <a href="signup.html">Faça o cadastro</a></p>
-            </div>
+            <p class="text-center">Ainda não tem uma conta? <a href="signup.html">Faça o cadastro</a></p>
         </form>
     </main>
     <script src="https://unpkg.com/codyhouse-framework/main/assets/js/util.js"></script>
+    <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.js"></script>
 </body>
 
 </html>
