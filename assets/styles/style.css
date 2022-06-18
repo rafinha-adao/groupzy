@@ -57,7 +57,6 @@ button:hover {
       -ms-flex-align: center;
           align-items: center;
   margin: auto;
-  min-height: 100%;
 }
 
 .container-signup form, .container-login form {
@@ -77,11 +76,7 @@ button:hover {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 3rem 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  margin: 3rem 0;
   backdrop-filter: blur(1rem) saturate(70%);
   -webkit-backdrop-filter: blur(1rem) saturate(70%);
   background-color: rgba(249, 249, 249, 0.8);
@@ -156,7 +151,7 @@ button:hover {
 }
 
 .chat-container {
-  max-width: 64rem;
+  max-width: 68rem;
   max-height: 100vh;
   height: 90%;
   width: 90%;
