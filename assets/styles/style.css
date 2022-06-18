@@ -10,7 +10,39 @@ body {
   font-family: 'Anek Latin', sans-serif;
 }
 
-main {
+body::-webkit-scrollbar {
+  width: .8rem;
+  border-radius: .28rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #724CF9;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(249, 249, 249, 0.8);
+}
+
+button {
+  padding: .8rem 0;
+  border: none;
+  border-radius: .28rem;
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #f2f2f2;
+  background-color: #2B50AA;
+}
+
+button:hover {
+  opacity: .95;
+  -webkit-transition: .3s;
+  transition: .3s;
+  -webkit-transform: translateY(-0.05rem);
+          transform: translateY(-0.05rem);
+}
+
+.container-signup, .container-login {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,7 +60,7 @@ main {
   min-height: 100%;
 }
 
-main form {
+.container-signup form, .container-login form {
   max-width: 32rem;
   width: 90%;
   display: -webkit-box;
@@ -45,7 +77,11 @@ main form {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 3rem 0;
-  margin: 3rem 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   backdrop-filter: blur(1rem) saturate(70%);
   -webkit-backdrop-filter: blur(1rem) saturate(70%);
   background-color: rgba(249, 249, 249, 0.8);
@@ -53,11 +89,11 @@ main form {
   border: 1px solid rgba(209, 213, 219, 0.3);
 }
 
-main form h1 {
+.container-signup form h1, .container-login form h1 {
   margin: 0 0 1rem 0;
 }
 
-main form .input-container {
+.container-signup form .input-container, .container-login form .input-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,14 +104,14 @@ main form .input-container {
   margin: .25rem 0 .25rem 0;
 }
 
-main form .input-container label {
+.container-signup form .input-container label, .container-login form .input-container label {
   margin: .45rem 0 .5rem 0;
   font-size: 1.05rem;
   font-weight: 400;
 }
 
-main form .input-container input {
-  width: 22rem;
+.container-signup form .input-container input, .container-login form .input-container input {
+  width: 24rem;
   padding: .6rem .5rem;
   font-size: 1.1rem;
   border: .2rem solid #f9f9f9;
@@ -85,45 +121,68 @@ main form .input-container input {
   outline: none;
 }
 
-main form .input-container input:focus {
+.container-signup form .input-container input:focus, .container-login form .input-container input:focus {
   border: .2rem solid #2B50AA;
 }
 
-main form .input-container textarea {
+.container-signup form .input-container textarea, .container-login form .input-container textarea {
   resize: none;
-  width: 22rem;
+  width: 24rem;
   height: 8rem;
   border: none;
   border-radius: .28rem;
   padding: .6rem .5rem;
   font-size: 1.1rem;
-  -webkit-transition: .25s;
-  transition: .25s;
+  -webkit-transition: .3s;
+  transition: .3s;
   outline: none;
   border: .2rem solid #f9f9f9;
 }
 
-main form .input-container textarea:focus {
+.container-signup form .input-container textarea:focus, .container-login form .input-container textarea:focus {
   border: .2rem solid #2B50AA;
 }
 
-main form .btn-container {
+.container-signup form .btn-container, .container-login form .btn-container {
   margin: 1.5rem 0;
 }
 
-main form .btn-container button {
-  width: 22rem;
-  padding: .8rem 0;
-  border: none;
-  border-radius: .28rem;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #f2f2f2;
-  background-color: #2B50AA;
+.container-signup form .btn-container button, .container-login form .btn-container button {
+  width: 24rem;
 }
 
-main form a {
+.container-signup form a, .container-login form a {
   color: #2B50AA;
+}
+
+.chat-container {
+  max-width: 64rem;
+  max-height: 100vh;
+  height: 90%;
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  backdrop-filter: blur(1rem) saturate(70%);
+  -webkit-backdrop-filter: blur(1rem) saturate(70%);
+  background-color: rgba(249, 249, 249, 0.8);
+  border-radius: .28rem;
+  border: 1px solid rgba(209, 213, 219, 0.3);
 }
 /*# sourceMappingURL=style.css.map */
