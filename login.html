@@ -7,13 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/styles/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/isLogged.js"></script>
     <title>Entrar | Groupzy</title>
 </head>
 
 <body>
     <a href="index.html">Home</a>
     <main class="container-login">
-        <form method="post">
+        <form method="post" id="login">
             <h1>Login</h1>
             <div class="input-container">
                 <label>E-mail</label>
@@ -29,6 +31,26 @@
             <p>É novo por aqui? <a href="signup.html">Faça o cadastro</a></p>
         </form>
     </main>
+    <script>
+        $('#login').submit(function (e) {
+            e.preventDefault();
+            var data = $(this).serialize();
+            $.ajax({
+                type: "GET",
+                url: 'https://api-groupzy.herokuapp.com/login.php',
+                data: data,
+                success: function (res) {
+                    if (res.status == 1) {
+                        sessionStorage.setItem('login', true);
+                        sessionStorage.setItem('user', res.user);
+                        window.location = '/groups';
+                    } else {
+                        alert('Usuário e/ou senha incorretos!')
+                    };
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

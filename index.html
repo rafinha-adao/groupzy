@@ -17,7 +17,15 @@
         <a href="signup.html">Cadastro</a>
         <a href="chat/">Chat</a>
         <a href="groups/">Grupos</a>
+        <button onclick="logout();">Logout</button>
     </main>
+    <script>
+        function logout() {
+            sessionStorage.clear();
+            location.reload();
+            window.location = 'login.html';
+        }
+    </script>
 </body>
 
 </html>

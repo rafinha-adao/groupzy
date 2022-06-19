@@ -7,13 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/styles/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/isLogged.js"></script>
     <title>Cadastro | Groupzy</title>
 </head>
 
 <body>
     <a href="index.html">Home</a>
     <main class="container-signup">
-        <form method="post">
+        <form method="POST" id="signup">
             <h1>Cadastro</h1>
             <div class="input-container">
                 <label>Nome completo</label>
@@ -45,6 +47,26 @@
             <p>Já tem uma conta? <a href="login.html">Faça o login</a></p>
         </form>
     </main>
+    <script>
+        $('#signup').submit(function (e) {
+            e.preventDefault();
+            var data = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: 'http://api-groupzy.herokuapp.com/users/',
+                data: data,
+                success: function (res) {
+                    if (res.status == 1) {
+                        sessionStorage.setItem('login', true);
+                        sessionStorage.setItem('user', res.user);
+                        window.location = '/groups';
+                    } else {
+                        alert('Erro ao adicionar usuário!')
+                    };
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
