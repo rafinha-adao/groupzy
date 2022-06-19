@@ -11,8 +11,8 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: .8rem;
-  border-radius: .28rem;
+  width: .5rem;
+  border-radius: .4rem;
 }
 
 body::-webkit-scrollbar-track {
@@ -20,13 +20,13 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: rgba(249, 249, 249, 0.8);
+  background: rgba(249, 249, 249, 0.75);
 }
 
 button {
   padding: .8rem 0;
   border: none;
-  border-radius: .28rem;
+  border-radius: .4rem;
   cursor: pointer;
   font-size: 1.3rem;
   font-weight: 500;
@@ -38,8 +38,22 @@ button:hover {
   opacity: .95;
   -webkit-transition: .3s;
   transition: .3s;
-  -webkit-transform: translateY(-0.05rem);
-          transform: translateY(-0.05rem);
+}
+
+input {
+  width: 24rem;
+  height: 3rem;
+  padding: .5rem;
+  font-size: 1.1rem;
+  border: 0.2rem solid rgba(209, 213, 219, 0.3);
+  border-radius: .4rem;
+  -webkit-transition: .3s;
+  transition: .3s;
+  outline: none;
+}
+
+input:focus {
+  border: .2rem solid #2B50AA;
 }
 
 .container-signup, .container-login {
@@ -77,10 +91,10 @@ button:hover {
           justify-content: center;
   padding: 3rem 0;
   margin: 3rem 0;
-  backdrop-filter: blur(1rem) saturate(70%);
   -webkit-backdrop-filter: blur(1rem) saturate(70%);
-  background-color: rgba(249, 249, 249, 0.8);
-  border-radius: .28rem;
+          backdrop-filter: blur(1rem) saturate(70%);
+  background-color: rgba(249, 249, 249, 0.75);
+  border-radius: .4rem;
   border: 1px solid rgba(209, 213, 219, 0.3);
 }
 
@@ -105,33 +119,18 @@ button:hover {
   font-weight: 400;
 }
 
-.container-signup form .input-container input, .container-login form .input-container input {
-  width: 24rem;
-  padding: .6rem .5rem;
-  font-size: 1.1rem;
-  border: .2rem solid #f9f9f9;
-  border-radius: .28rem;
-  -webkit-transition: .3s;
-  transition: .3s;
-  outline: none;
-}
-
-.container-signup form .input-container input:focus, .container-login form .input-container input:focus {
-  border: .2rem solid #2B50AA;
-}
-
 .container-signup form .input-container textarea, .container-login form .input-container textarea {
   resize: none;
   width: 24rem;
-  height: 8rem;
+  height: 6rem;
   border: none;
-  border-radius: .28rem;
+  border-radius: .4rem;
   padding: .6rem .5rem;
   font-size: 1.1rem;
   -webkit-transition: .3s;
   transition: .3s;
   outline: none;
-  border: .2rem solid #f9f9f9;
+  border: 0.2rem solid rgba(209, 213, 219, 0.3);
 }
 
 .container-signup form .input-container textarea:focus, .container-login form .input-container textarea:focus {
@@ -146,15 +145,19 @@ button:hover {
   width: 24rem;
 }
 
+.container-signup form .btn-container button:hover, .container-login form .btn-container button:hover {
+  -webkit-transform: translateY(-0.05rem);
+          transform: translateY(-0.05rem);
+}
+
 .container-signup form a, .container-login form a {
   color: #2B50AA;
 }
 
 .chat-container {
-  max-width: 68rem;
-  max-height: 100vh;
-  height: 90%;
-  width: 90%;
+  max-width: 55rem;
+  width: 95%;
+  height: 95%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -170,14 +173,234 @@ button:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0 auto;
+  -webkit-backdrop-filter: blur(1rem) saturate(70%);
+          backdrop-filter: blur(1rem) saturate(70%);
+  background-color: rgba(249, 249, 249, 0.75);
+  border-radius: .4rem;
+}
+
+.chat-container .group-info {
+  height: 4rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+          backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: .3rem .3rem 0  0;
+}
+
+.chat-container .group-info h1 {
+  margin: 0;
+  padding: 0 0 0 1rem;
+  font-size: 1.4rem;
+}
+
+.chat-container .container-messages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0 0 3rem 0;
+  overflow-y: auto;
+}
+
+.chat-container .container-messages::-webkit-scrollbar {
+  width: .4rem;
+  border-radius: .4rem;
+}
+
+.chat-container .container-messages::-webkit-scrollbar-track {
+  background: rgba(249, 249, 249, 0.75);
+}
+
+.chat-container .container-messages::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+}
+
+.chat-container .container-messages .message {
+  max-width: 55%;
+  padding: .8rem .5rem;
+  margin: .3rem .5rem;
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+          backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: .3rem;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+.chat-container .container-messages .message:first-child {
+  margin-top: 1rem;
+}
+
+.chat-container .container-messages .message:last-child {
+  margin-bottom: 1rem;
+}
+
+.chat-container .container-messages .message p {
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.chat-container .container-messages .my-message {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  border-radius: .3rem .3rem 0 .3rem;
+}
+
+.chat-container .container-messages .other-message {
+  border-radius: .3rem .3rem .3rem 0;
+  background-color: rgba(238, 238, 238, 0.75);
+}
+
+.chat-container .container-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: auto;
-  backdrop-filter: blur(1rem) saturate(70%);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 3rem;
+  position: fixed;
+  bottom: 0;
+}
+
+.chat-container .container-actions input {
+  border-radius: 0 0 0 .3rem;
+  width: 100%;
+  height: 100%;
+}
+
+.chat-container .container-actions button {
+  border-radius: 0 0 .3rem 0;
+  width: 4rem;
+  height: 100%;
+}
+
+.container-groups {
+  max-width: 55rem;
+  width: 95%;
+  height: 95%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
   -webkit-backdrop-filter: blur(1rem) saturate(70%);
-  background-color: rgba(249, 249, 249, 0.8);
-  border-radius: .28rem;
-  border: 1px solid rgba(209, 213, 219, 0.3);
+          backdrop-filter: blur(1rem) saturate(70%);
+  background-color: rgba(249, 249, 249, 0.75);
+  border-radius: .4rem;
+}
+
+.container-groups .container-title {
+  height: 4rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+          backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(238, 238, 238, 0.75);
+  border-radius: .3rem .3rem 0  0;
+  border-bottom: 0.05rem solid #a0a0a0;
+}
+
+.container-groups .container-title h1 {
+  margin: 0;
+  padding: 0 0 0 1rem;
+  font-size: 1.4rem;
+}
+
+.container-groups .groups-list {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.container-groups .groups-list::-webkit-scrollbar {
+  width: .4rem;
+  border-radius: .4rem;
+}
+
+.container-groups .groups-list::-webkit-scrollbar-track {
+  background: rgba(249, 249, 249, 0.75);
+}
+
+.container-groups .groups-list::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+}
+
+.container-groups .groups-list .group-card {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 4rem;
+  border-bottom: 0.05rem solid #a0a0a0;
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+          backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.container-groups .groups-list .group-card .group-title {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container-groups .groups-list .group-card .group-title h2 {
+  margin: 0 0 0 1rem;
+}
+
+.container-groups .groups-list .group-card .group-action {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.container-groups .groups-list .group-card .group-action button {
+  max-width: 6rem;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  border: none;
 }
 /*# sourceMappingURL=style.css.map */
