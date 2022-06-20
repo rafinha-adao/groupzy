@@ -34,7 +34,7 @@
                             <h2>${group.name}</h2>
                         </div>
                         <div class="group-action">
-                            <button>
+                            <button onclick="enterGroup();">
                                 <img src="../assets/img/login_FILL0_wght500_GRAD0_opsz24.svg" alt="Entrar">
                             </button>
                         </div>
@@ -44,6 +44,9 @@
                 $('#groups-list').html(cardGroupHtml);
             }
         });
+        function enterGroup() {
+            window.location = '/chat';
+        }
     </script>
 </body>
 
