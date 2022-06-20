@@ -6,7 +6,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" href="../assets/styles/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/auth.js"></script>
@@ -29,7 +28,7 @@
         let currentUser = JSON.parse(sessionStorage.getItem('user'));
         $.ajax({
             type: "GET",
-            url: 'http://api-groupzy.herokuapp.com/groups/',
+            url: 'https://api-groupzy.herokuapp.com/groups.php/',
             data: {
                 idGroup: currentUser.idGroup
             },
@@ -41,7 +40,7 @@
         function getMessages() {
             $.ajax({
                 type: "GET",
-                url: 'http://api-groupzy.herokuapp.com/messages/',
+                url: 'https://api-groupzy.herokuapp.com/messages.php',
                 data: {
                     idGroup: currentUser.idGroup,
                     limit: 2
@@ -75,7 +74,7 @@
             e.preventDefault();
             $.ajax({
                 type: "POST",
-                url: 'http://api-groupzy.herokuapp.com/messages/',
+                url: 'https://api-groupzy.herokuapp.com/messages.php/',
                 data: {
                     content: $('input[name=message]').val(),
                     idUser: currentUser.id,

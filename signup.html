@@ -6,7 +6,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" href="assets/styles/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/js/isLogged.js"></script>
@@ -54,7 +53,7 @@
             var data = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: 'http://api-groupzy.herokuapp.com/users/',
+                url: 'https://api-groupzy.herokuapp.com/users.php/',
                 data: data,
                 success: function (res) {
                     if (res.status == 1) {
