@@ -15,33 +15,76 @@
 
 <body>
     <main class="chat-container">
-        <div class="group-info">
-            <h1>Grupo Name :)</h1>
-        </div>
-        <div class="container-messages">
-            <div class="message my-message">
-                <p>message content :)</p>
-            </div>
-            <div class="message other-message">
-                <p>other content :o AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
-            </div>
-            <div class="message my-message">
-                <p>message content :)</p>
-            </div>
-            <div class="message my-message">
-                <p>message content :)</p>
-            </div>
-            <div class="message my-message">
-                <p>message content :)</p>
-            </div>
-        </div>
-        <div class="container-actions">
+        <div id="group-info"></div>
+        <div id="container-messages"></div>
+        <form method="POST" autocomplete="off" id="container-actions">
             <input type="text" name="message">
             <button type="submit">
                 <img src="../assets/img/send_FILL0_wght500_GRAD0_opsz24.svg" alt="Enviar">
             </button>
-        </div>
+        </form>
     </main>
+    <script>
+        let currentUser = JSON.parse(sessionStorage.getItem('user'));
+        $.ajax({
+            type: "GET",
+            url: 'http://api-groupzy.herokuapp.com/groups/',
+            data: {
+                idGroup: currentUser.idGroup
+            },
+            success: function (res) {
+                $('#group-info').html(`<h1>${res[0].name}</h1>`);
+            }
+        });
+
+        function getMessages() {
+            $.ajax({
+                type: "GET",
+                url: 'http://api-groupzy.herokuapp.com/messages/',
+                data: {
+                    idGroup: currentUser.idGroup,
+                    limit: 2
+                },
+                success: function (res) {
+                    let messageHtml = ``;
+                    res.forEach(message => {
+                        if (message.idUser == parseInt(currentUser.id)) {
+                            messageHtml += `
+                                <div class="message my-message">
+                                    <p>${message.content}</p>
+                                </div>
+                            `;
+                        } else {
+                            messageHtml += `
+                                <div class="message other-message">
+                                    <h2>user</h2>
+                                    <p>${message.content}</p>
+                                </div>
+                            `;
+                        }
+                    });
+                    $('#container-messages').html(messageHtml);
+                    $("#container-messages").scrollTop($("#container-messages")[0].scrollHeight);
+                }
+            });
+        };
+        getMessages();
+        setInterval(getMessages, 1000);
+        $('#container-actions').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: 'http://api-groupzy.herokuapp.com/messages/',
+                data: {
+                    content: $('input[name=message]').val(),
+                    idUser: currentUser.id,
+                    idGroup: currentUser.idGroup
+                }
+            });
+            document.getElementById('container-actions').reset();
+            getMessages();
+        });
+    </script>
 </body>
 
 </html>

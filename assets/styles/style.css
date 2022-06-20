@@ -180,7 +180,7 @@ input:focus {
   border-radius: .4rem;
 }
 
-.chat-container .group-info {
+.chat-container #group-info {
   height: 4rem;
   width: 100%;
   display: -webkit-box;
@@ -195,13 +195,13 @@ input:focus {
   border-radius: .3rem .3rem 0  0;
 }
 
-.chat-container .group-info h1 {
+.chat-container #group-info h1 {
   margin: 0;
   padding: 0 0 0 1rem;
   font-size: 1.4rem;
 }
 
-.chat-container .container-messages {
+.chat-container #container-messages {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -215,21 +215,22 @@ input:focus {
   overflow-y: auto;
 }
 
-.chat-container .container-messages::-webkit-scrollbar {
+.chat-container #container-messages::-webkit-scrollbar {
   width: .4rem;
   border-radius: .4rem;
 }
 
-.chat-container .container-messages::-webkit-scrollbar-track {
+.chat-container #container-messages::-webkit-scrollbar-track {
   background: rgba(249, 249, 249, 0.75);
 }
 
-.chat-container .container-messages::-webkit-scrollbar-thumb {
+.chat-container #container-messages::-webkit-scrollbar-thumb {
   background: #e1e1e1;
 }
 
-.chat-container .container-messages .message {
-  max-width: 55%;
+.chat-container #container-messages .message {
+  min-width: 25%;
+  max-width: 50%;
   padding: .8rem .5rem;
   margin: .3rem .5rem;
   -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -239,31 +240,37 @@ input:focus {
   border: 1px solid rgba(209, 213, 219, 0.3);
 }
 
-.chat-container .container-messages .message:first-child {
+.chat-container #container-messages .message:first-child {
   margin-top: 1rem;
 }
 
-.chat-container .container-messages .message:last-child {
+.chat-container #container-messages .message:last-child {
   margin-bottom: 1rem;
 }
 
-.chat-container .container-messages .message p {
+.chat-container #container-messages .message h2 {
+  font-size: 1.05rem;
+  margin: 0 0 .5rem 0;
+  color: #2B50AA;
+}
+
+.chat-container #container-messages .message p {
   margin: 0;
   word-wrap: break-word;
 }
 
-.chat-container .container-messages .my-message {
+.chat-container #container-messages .my-message {
   -ms-flex-item-align: end;
       align-self: flex-end;
   border-radius: .3rem .3rem 0 .3rem;
 }
 
-.chat-container .container-messages .other-message {
+.chat-container #container-messages .other-message {
   border-radius: .3rem .3rem .3rem 0;
   background-color: rgba(238, 238, 238, 0.75);
 }
 
-.chat-container .container-actions {
+.chat-container #container-actions {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -277,15 +284,16 @@ input:focus {
   height: 3rem;
   position: fixed;
   bottom: 0;
+  margin-bottom: 0;
 }
 
-.chat-container .container-actions input {
+.chat-container #container-actions input {
   border-radius: 0 0 0 .3rem;
   width: 100%;
   height: 100%;
 }
 
-.chat-container .container-actions button {
+.chat-container #container-actions button {
   border-radius: 0 0 .3rem 0;
   width: 4rem;
   height: 100%;
