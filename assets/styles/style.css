@@ -56,6 +56,37 @@ input:focus {
   border: .2rem solid #2B50AA;
 }
 
+.container-home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container-home .container-image {
+  width: 20rem;
+}
+
+.container-home .container-image img {
+  width: 100%;
+}
+
+.container-home .container-content-actions {
+  width: 30rem;
+  -webkit-backdrop-filter: blur(1rem) saturate(70%);
+          backdrop-filter: blur(1rem) saturate(70%);
+  background-color: rgba(249, 249, 249, 0.75);
+  border-radius: .4rem;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
 .container-signup, .container-login {
   display: -webkit-box;
   display: -ms-flexbox;

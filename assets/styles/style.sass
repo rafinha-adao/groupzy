@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100;300;400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@100;300;400;500;700;800&display=swap')
     
 body
     margin: 0
@@ -45,6 +45,25 @@ input
 
     &:focus
         border: .2rem solid #2B50AA
+
+.container-home
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+
+    .container-image
+        width: 20rem
+
+        img
+            width: 100%
+
+    .container-content-actions
+        width: 30rem
+        backdrop-filter: blur(1rem) saturate(70%)
+        background-color: rgba(249, 249, 249, 0.75)
+        border-radius: .4rem
+        border: 1px solid rgba(209, 213, 219, 0.3)
 
 .container-signup, .container-login
     display: flex
