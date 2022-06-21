@@ -25,13 +25,14 @@
                 <input type="password" name="pass">
             </div>
             <div class="btn-container">
-                <button type="submit">Entrar</button>
+                <button type="submit" id="btn-login">Entrar</button>
             </div>
             <p>É novo por aqui? <a href="signup.html">Faça o cadastro</a></p>
         </form>
     </main>
     <script>
         $('#login').submit(function (e) {
+            $('#btn-login').html('<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>');
             e.preventDefault();
             var data = $(this).serialize();
             $.ajax({
@@ -45,6 +46,7 @@
                         window.location = '/chat';
                     } else {
                         alert('Usuário e/ou senha incorretos!')
+                        $('#btn-login').html('Entrar');
                     };
                 }
             });
