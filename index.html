@@ -13,27 +13,21 @@
 <body>
     <main>
         <div class="container-home">
-            <div class="container-image">
-                <img src="assets/img/saly-31.svg" alt="">
-            </div>
-            <div class="container-content-actions">
+            <div class="container-content">
+                <img src="assets/img/saly-31.svg">
                 <h1>Groupzy</h1>
-                <a href="login.html">Login</a>
-                <a href="signup.html">Cadastro</a>
-                <a href="chat/">Chat</a>
-                <a href="groups/">Grupos</a>
-                <button onclick="logout();">Logout</button>
+                <div class="container-buttons">
+                    <a href="login.html" class="btn" id="btn-login">Login</a>
+                    <a href="signup.html" class="btn" id="btn-signup">Cadastro</a>
+                    <a href="chat/" class="btn" id="btn-chat">Chat</a>
+                    <a href="groups/" class="btn" id="btn-groups">Grupos</a>
+                    <button onclick="logOut();" id="btn-logout">Sair</button>
+                </div>
             </div>
         </div>
-
     </main>
-    <script>
-        function logout() {
-            sessionStorage.clear();
-            location.reload();
-            window.location = 'login.html';
-        }
-    </script>
+    <script src="assets/js/homeVerify.js"></script>
+    <script src="assets/js/logOut.js"></script>
 </body>
 
 </html>
