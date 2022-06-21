@@ -29,7 +29,7 @@ button, .btn {
   font-size: 1.3rem;
   font-weight: 500;
   color: #f2f2f2;
-  background-color: #2B50AA;
+  background-color: #5232C7;
 }
 button:hover, .btn:hover {
   transition: 0.3s;
@@ -50,7 +50,7 @@ input {
   outline: none;
 }
 input:focus {
-  border: 0.175rem solid #2B50AA;
+  border: 0.175rem solid #5232C7;
 }
 
 textarea {
@@ -65,7 +65,7 @@ textarea {
   border: 0.15rem solid #dddddd;
 }
 textarea:focus {
-  border: 0.175rem solid #2B50AA;
+  border: 0.175rem solid #5232C7;
 }
 
 .container-home {
@@ -97,9 +97,13 @@ textarea:focus {
   flex-direction: column;
   width: 90%;
 }
-.container-home .container-content .container-buttons .btn, .container-home .container-content .container-buttons #btn-logout {
+.container-home .container-content .container-buttons .btn {
   margin: 0.25rem 0;
   text-align: center;
+}
+.container-home .container-content .container-buttons #btn-logout {
+  margin: 2rem 0 0 0;
+  background-color: #FA7257;
 }
 
 .container-signup, .container-login {
@@ -152,7 +156,7 @@ textarea:focus {
   transform: translateY(-0.05rem);
 }
 .container-signup form a, .container-login form a {
-  color: #2B50AA;
+  color: #5232C7;
 }
 
 .chat-container {
@@ -186,6 +190,7 @@ textarea:focus {
   margin: 0;
   padding: 0 0 0 1rem;
   font-size: 1.4rem;
+  color: #181818;
 }
 .chat-container #container-messages {
   display: flex;
@@ -225,7 +230,7 @@ textarea:focus {
 .chat-container #container-messages .message h2 {
   font-size: 1.05rem;
   margin: 0 0 0.5rem 0;
-  color: #2B50AA;
+  color: #FA7257;
 }
 .chat-container #container-messages .message p {
   margin: 0;

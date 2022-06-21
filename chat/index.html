@@ -17,7 +17,7 @@
         <div id="group-info"></div>
         <div id="container-messages"></div>
         <form method="POST" autocomplete="off" id="container-actions">
-            <input type="text" name="message">
+            <input type="text" name="message" placeholder="Digite aqui...">
             <button type="submit">
                 <img src="../assets/img/send_FILL0_wght500_GRAD0_opsz24.svg" alt="Enviar">
             </button>
@@ -71,17 +71,21 @@
         setInterval(getMessages, 1000);
         $('#container-actions').submit(function (e) {
             e.preventDefault();
-            $.ajax({
-                type: "POST",
-                url: 'https://api-groupzy.herokuapp.com/messages.php/',
-                data: {
-                    content: $('input[name=message]').val(),
-                    idUser: currentUser.id,
-                    idGroup: currentUser.idGroup
-                }
-            });
-            document.getElementById('container-actions').reset();
-            getMessages();
+            var message = $('input[name=message]').val();
+            console.log(message);
+            if (message != '' && message != ' ' && message != null) {
+                $.ajax({
+                    type: "POST",
+                    url: 'https://api-groupzy.herokuapp.com/messages.php/',
+                    data: {
+                        content: message,
+                        idUser: currentUser.id,
+                        idGroup: currentUser.idGroup
+                    }
+                });
+                document.getElementById('container-actions').reset();
+                getMessages();
+            }
         });
     </script>
 </body>

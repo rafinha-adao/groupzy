@@ -26,7 +26,7 @@ button, .btn
     font-size: 1.3rem
     font-weight: 500
     color: #f2f2f2
-    background-color: #2B50AA
+    background-color: #5232C7
 
     &:hover
         transition: .3s
@@ -45,7 +45,7 @@ input
     outline: none
 
     &:focus
-        border: .175rem solid #2B50AA
+        border: .175rem solid #5232C7
 
 textarea
     resize: none
@@ -59,7 +59,7 @@ textarea
     border: .15rem solid #dddddd
 
     &:focus
-        border: .175rem solid #2B50AA
+        border: .175rem solid #5232C7
 
 .container-home
     display: flex
@@ -90,9 +90,13 @@ textarea
             flex-direction: column
             width: 90%
 
-            .btn, #btn-logout
+            .btn
                 margin: 0.25rem 0
                 text-align: center
+
+            #btn-logout
+                margin: 2rem 0 0 0
+                background-color: #FA7257
 
 .container-signup, .container-login
     display: flex
@@ -143,7 +147,7 @@ textarea
                     transform: translateY(-.05rem)
 
         a
-            color: #2B50AA
+            color: #5232C7
 
 .chat-container
     max-width: 55rem
@@ -174,6 +178,7 @@ textarea
             margin: 0
             padding: 0 0 0 1rem
             font-size: 1.4rem
+            color: #181818
 
     #container-messages
         display: flex
@@ -212,7 +217,7 @@ textarea
             h2
                 font-size: 1.05rem
                 margin: 0 0 .5rem 0
-                color: #2B50AA
+                color: #FA7257
 
             p
                 margin: 0
@@ -229,7 +234,6 @@ textarea
     #container-actions
         display: flex
         justify-content: center
-        //align-items: center
         width: 100%
         position: fixed
         bottom: 0
