@@ -32,8 +32,8 @@ button, .btn {
   background-color: #2B50AA;
 }
 button:hover, .btn:hover {
-  opacity: 0.95;
   transition: 0.3s;
+  opacity: 0.95;
 }
 
 a {
@@ -41,8 +41,7 @@ a {
 }
 
 input {
-  width: 100%;
-  height: 3.5rem;
+  height: 2.5rem;
   padding: 0.5rem;
   font-size: 1.3rem;
   border: 0.15rem solid #dddddd;
@@ -54,13 +53,28 @@ input:focus {
   border: 0.175rem solid #2B50AA;
 }
 
+textarea {
+  resize: none;
+  height: 6rem;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.5rem;
+  font-size: 1.3rem;
+  transition: 0.3s;
+  outline: none;
+  border: 0.15rem solid #dddddd;
+}
+textarea:focus {
+  border: 0.175rem solid #2B50AA;
+}
+
 .container-home {
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 30rem;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   margin: auto;
 }
 .container-home .container-content {
@@ -125,21 +139,6 @@ input:focus {
   margin: 0.45rem 0;
   font-size: 0.95rem;
   font-weight: 300;
-}
-.container-signup form .input-container textarea, .container-login form .input-container textarea {
-  resize: none;
-  width: 100%;
-  height: 6rem;
-  border: none;
-  border-radius: 0.4rem;
-  padding: 0.6rem 0.5rem;
-  font-size: 1.1rem;
-  transition: 0.3s;
-  outline: none;
-  border: 0.15rem solid #dddddd;
-}
-.container-signup form .input-container textarea:focus, .container-login form .input-container textarea:focus {
-  border: 0.175rem solid #2B50AA;
 }
 .container-signup form .btn-container, .container-login form .btn-container {
   margin: 1.5rem 0;
@@ -243,9 +242,7 @@ input:focus {
 .chat-container #container-actions {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
-  height: 3rem;
   position: fixed;
   bottom: 0;
   margin-bottom: 0;
@@ -253,12 +250,10 @@ input:focus {
 .chat-container #container-actions input {
   border-radius: 0 0 0 0.3rem;
   width: 100%;
-  height: 100%;
 }
 .chat-container #container-actions button {
   border-radius: 0 0 0.3rem 0;
-  width: 4rem;
-  height: 100%;
+  width: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
