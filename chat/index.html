@@ -35,7 +35,7 @@
         <div id="container-messages"></div>
         <form method="POST" autocomplete="off" id="container-actions">
             <input type="text" name="message" placeholder="Digite aqui...">
-            <button type="submit">
+            <button type="submit" id="btn-send-message">
                 <img src="../assets/img/send_FILL0_wght500_GRAD0_opsz24.svg" alt="Enviar">
             </button>
         </form>
@@ -74,10 +74,20 @@
         };
         getMessages();
         setInterval(getMessages, 1000);
+        $('input[name=message]').on('keyup', function () {
+            let empty = false;
+            $('input[name=message]').each(function () {
+                empty = $(this).val().length == 0;
+            });
+            if (empty) {
+                $('#btn-send-message').attr('disabled', 'disabled');
+            } else {
+                $('#btn-send-message').attr('disabled', false);
+            }
+        });
         $('#container-actions').submit(function (e) {
             e.preventDefault();
             var message = $('input[name=message]').val();
-            console.log(message);
             if (message != '' && message != ' ' && message != null) {
                 $.ajax({
                     type: "POST",
