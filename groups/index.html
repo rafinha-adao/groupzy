@@ -21,7 +21,7 @@
                             <h2>${group.name}</h2>
                         </div>
                         <div class="group-action">
-                            <button onclick="enterGroup();">
+                            <button onclick="enterGroup(${group.id});">
                                 <img src="../assets/img/login_FILL0_wght500_GRAD0_opsz24.svg" alt="Entrar">
                             </button>
                         </div>
@@ -39,13 +39,16 @@
     <main>
         <div class="container-groups">
             <div class="container-title">
+                <a href="../index.html">
+                    <img src="../assets/img/arrow_back_ios_new_FILL0_wght500_GRAD0_opsz24.svg" alt="">
+                </a>
                 <h1>Todos os grupos</h1>
             </div>
             <div id="groups-list"></div>
         </div>
     </main>
     <script>
-        function enterGroup() {
+        function enterGroup(idGroup) {
             window.location = '/chat';
         }
     </script>

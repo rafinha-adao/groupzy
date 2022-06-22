@@ -9,20 +9,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/auth.js"></script>
     <script src="../assets/js/hasGroup.js"></script>
-    <title>Chat | Groupzy</title>
-</head>
-
-<body>
-    <main class="chat-container">
-        <div id="group-info"></div>
-        <div id="container-messages"></div>
-        <form method="POST" autocomplete="off" id="container-actions">
-            <input type="text" name="message" placeholder="Digite aqui...">
-            <button type="submit">
-                <img src="../assets/img/send_FILL0_wght500_GRAD0_opsz24.svg" alt="Enviar">
-            </button>
-        </form>
-    </main>
     <script>
         let currentUser = JSON.parse(sessionStorage.getItem('user'));
         $.ajax({
@@ -32,10 +18,29 @@
                 idGroup: currentUser.idGroup
             },
             success: function (res) {
-                $('#group-info').html(`<h1>${res[0].name}</h1>`);
+                $('#group-info').append(`<h1>${res[0].name}</h1>`);
             }
         });
+    </script>
+    <title>Chat | Groupzy</title>
+</head>
 
+<body>
+    <main class="chat-container">
+        <div id="group-info">
+            <a href="/groups/">
+                <img src="../assets/img/arrow_back_ios_new_FILL0_wght500_GRAD0_opsz24.svg" alt="">
+            </a>
+        </div>
+        <div id="container-messages"></div>
+        <form method="POST" autocomplete="off" id="container-actions">
+            <input type="text" name="message" placeholder="Digite aqui...">
+            <button type="submit">
+                <img src="../assets/img/send_FILL0_wght500_GRAD0_opsz24.svg" alt="Enviar">
+            </button>
+        </form>
+    </main>
+    <script>
         function getMessages() {
             $.ajax({
                 type: "GET",
@@ -56,7 +61,7 @@
                         } else {
                             messageHtml += `
                                 <div class="message other-message">
-                                    <h2>user</h2>
+                                    <h2>${message.tagName}</h2>
                                     <p>${message.content}</p>
                                 </div>
                             `;
