@@ -55,11 +55,9 @@
                 data: data,
                 success: function (res) {
                     if (res.status == 1) {
-                        sessionStorage.setItem('login', true);
-                        sessionStorage.setItem('user', res.user);
-                        window.location = '/groups';
+                        window.location = '/login';
                     } else {
-                        alert('Erro ao adicionar usuário!')
+                        alert('Erro ao fazer cadastro!')
                     };
                 }
             });
