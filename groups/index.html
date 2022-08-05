@@ -16,17 +16,17 @@
                 let cardGroupHtml = ``;
                 res.forEach(group => {
                     cardGroupHtml += `
-                    <div class="group-card">
-                        <div class="group-title">
-                            <h2>${group.name}</h2>
+                        <div class="group-card">
+                            <div class="group-title">
+                                <h2>${group.name}</h2>
+                            </div>
+                            <div class="group-action">
+                                <button onclick="enterGroup(${group.id});">
+                                    <img src="../assets/img/login_FILL0_wght500_GRAD0_opsz24.svg" alt="Entrar">
+                                </button>
+                            </div>
                         </div>
-                        <div class="group-action">
-                            <button onclick="enterGroup(${group.id});">
-                                <img src="../assets/img/login_FILL0_wght500_GRAD0_opsz24.svg" alt="Entrar">
-                            </button>
-                        </div>
-                    </div>
-                `;
+                    `;
                 });
                 $('#groups-list').html(cardGroupHtml);
             }
