@@ -31,13 +31,14 @@
     </main>
     <script>
         $('#login').submit(function (e) {
+            $('#btn-login').attr("disabled", true);
+            $('#btn-login').html('<img src="assets/img/spinner-loading.svg">');
             $('#btn-login').css({
                 'padding': '0',
                 'display': 'flex',
                 'align-content': 'center',
                 'justify-content': 'center'
             });
-            $('#btn-login').html('<img src="assets/img/spinner-loading.svg">');
             e.preventDefault();
             var data = $(this).serialize();
             $.ajax({
@@ -50,13 +51,13 @@
                         sessionStorage.setItem('user', res.user);
                         window.location = '/chat';
                     } else {
-                        alert('Usuário e/ou senha incorretos!')
-                        $('#btn-login').html('Entrar');
-                        $('#btn-login').css('padding', '1rem 0');
+                        alert('Usuário ou senha incorretos!');
                         $('#btn-login').css({
                             'padding': '1rem 0',
                             'display': 'block'
                         });
+                        $('#btn-login').attr("disabled", false);
+                        $('#btn-login').html('Entrar');
                     };
                 }
             });

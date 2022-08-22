@@ -40,13 +40,21 @@
                 <textarea name="bio" maxlength="100"></textarea>
             </div>
             <div class="btn-container">
-                <button type="submit">Começar</button>
+                <button type="submit" id="btn-signup">Começar</button>
             </div>
             <p>Já tem uma conta? <a href="login.html">Faça o login</a></p>
         </form>
     </main>
     <script>
         $('#signup').submit(function (e) {
+            $('#btn-signup').attr("disabled", true);
+            $('#btn-signup').html('<img src="assets/img/spinner-loading.svg">');
+            $('#btn-signup').css({
+                'padding': '0',
+                'display': 'flex',
+                'align-content': 'center',
+                'justify-content': 'center'
+            });
             e.preventDefault();
             var data = $(this).serialize();
             $.ajax({
@@ -57,7 +65,13 @@
                     if (res.status == 1) {
                         window.location = 'login.html';
                     } else {
-                        alert('Erro ao fazer cadastro!')
+                        alert('Erro ao fazer cadastro!');
+                        $('#btn-signup').css({
+                            'padding': '1rem 0',
+                            'display': 'block'
+                        });
+                        $('#btn-signup').attr("disabled", false);
+                        $('#btn-signup').html('Começar');
                     };
                 }
             });
