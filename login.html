@@ -31,8 +31,14 @@
     </main>
     <script>
         $('#login').submit(function (e) {
-            $('#btn-login').html('<img scr="assets/img/spinner-loading.svg">');
             $('#btn-login').css('padding', '0');
+            $('#btn-login').css({
+                'padding': '0',
+                'display': 'flex',
+                'align-content': 'center',
+                'justify-content': 'center'
+            });
+            $('#btn-login').html('<img src="assets/img/spinner-loading.svg">');
             e.preventDefault();
             var data = $(this).serialize();
             $.ajax({
@@ -47,6 +53,11 @@
                     } else {
                         alert('Usuário e/ou senha incorretos!')
                         $('#btn-login').html('Entrar');
+                        $('#btn-login').css('padding', '1rem 0');
+                        $('#btn-login').css({
+                            'padding': '1rem 0',
+                            'display': 'block'
+                        });
                     };
                 }
             });
