@@ -31,7 +31,8 @@
     </main>
     <script>
         $('#login').submit(function (e) {
-            $('#btn-login').html('<div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>');
+            $('#btn-login').html('<img scr="assets/img/spinner-loading.svg">');
+            $('#btn-login').css('padding', '0');
             e.preventDefault();
             var data = $(this).serialize();
             $.ajax({
