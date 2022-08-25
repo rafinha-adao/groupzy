@@ -28,8 +28,8 @@
 <body>
     <main class="chat-container">
         <div id="group-info">
-            <a href="/groups/">
-                <img src="../assets/img/arrow_back_ios_new_FILL0_wght500_GRAD0_opsz24.svg" alt="">
+            <a href="../groups/">
+                <img src="../assets/img/arrow_back_ios_new_FILL0_wght500_GRAD0_opsz24.svg" alt="Seta voltar">
             </a>
         </div>
         <div id="container-messages"></div>
@@ -73,14 +73,14 @@
             });
         };
         getMessages();
-        setInterval(getMessages, 1000);
+        setInterval(getMessages, 1300);
         $('input[name=message]').on('keyup', function () {
             let empty = false;
             $('input[name=message]').each(function () {
                 empty = $(this).val().length == 0;
             });
             if (empty) {
-                $('#btn-send-message').attr('disabled', 'disabled');
+                $('#btn-send-message').attr('disabled', true);
             } else {
                 $('#btn-send-message').attr('disabled', false);
             }
