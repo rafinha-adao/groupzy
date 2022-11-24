@@ -7,18 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/styles/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/env.js"></script>
     <script src="../assets/js/auth.js"></script>
     <script>
         $.ajax({
-            type: "GET",
-            url: 'https://api-groupzy.herokuapp.com/groups.php/',
+            type: 'GET',
+            url: API_URL + 'groups.php',
             success: function (res) {
                 let cardGroupHtml = ``;
                 res.forEach(group => {
                     cardGroupHtml += `
                         <div class="group-card">
                             <div class="group-title">
-                                <h2>${group.name}</h2>
+                                <h2>${group.title}</h2>
                             </div>
                             <div class="group-action">
                                 <button onclick="enterGroup(${group.id});">
@@ -39,8 +40,8 @@
     <main>
         <div class="container-groups">
             <div class="container-title">
-                <a href="../index.html">
-                    <img src="../assets/img/arrow_back_ios_new_FILL0_wght500_GRAD0_opsz24.svg" alt="">
+                <a href="/">
+                    <img src="../assets/img/arrow_back_ios_new_FILL0_wght500_GRAD0_opsz24.svg" alt="Seta voltar">
                 </a>
                 <h1>Todos os grupos</h1>
             </div>

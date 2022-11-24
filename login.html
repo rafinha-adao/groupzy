@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/styles/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/env.js"></script>
     <script src="assets/js/isLogged.js"></script>
     <title>Entrar | Groupzy</title>
 </head>
@@ -42,8 +43,8 @@
             e.preventDefault();
             var data = $(this).serialize();
             $.ajax({
-                type: "GET",
-                url: 'https://api-groupzy.herokuapp.com/login.php',
+                type: 'GET',
+                url: API_URL + 'login.php',
                 data: data,
                 success: function (res) {
                     if (res.status == 1) {

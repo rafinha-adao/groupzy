@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/styles/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/env.js"></script>
     <script src="assets/js/isLogged.js"></script>
     <title>Cadastro | Groupzy</title>
 </head>
@@ -37,7 +38,7 @@
             </div>
             <div class="input-container">
                 <label>Bio</label>
-                <textarea name="bio" maxlength="100" required></textarea>
+                <textarea name="bio" maxlength="150" required></textarea>
             </div>
             <div class="btn-container">
                 <button type="submit" id="btn-signup">Começar</button>
@@ -59,7 +60,7 @@
             var data = $(this).serialize();
             $.ajax({
                 type: "POST",
-                url: 'https://api-groupzy.herokuapp.com/users.php/',
+                url: API_URL + 'users.php',
                 data: data,
                 success: function (res) {
                     if (res.status == 1) {

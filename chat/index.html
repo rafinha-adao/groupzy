@@ -7,18 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/styles/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../assets/js/env.js"></script>
     <script src="../assets/js/auth.js"></script>
     <script src="../assets/js/hasGroup.js"></script>
     <script>
         let currentUser = JSON.parse(sessionStorage.getItem('user'));
         $.ajax({
-            type: "GET",
-            url: 'https://api-groupzy.herokuapp.com/groups.php/',
+            type: 'GET',
+            url: API_URL + 'groups.php',
             data: {
                 idGroup: currentUser.idGroup
             },
             success: function (res) {
-                $('#group-info').append(`<h1>${res[0].name}</h1>`);
+                $('#group-info').append(`<h1>${res[0].title}</h1>`);
             }
         });
     </script>
@@ -28,7 +29,7 @@
 <body>
     <main class="chat-container">
         <div id="group-info">
-            <a href="../groups/">
+            <a href="/">
                 <img src="../assets/img/arrow_back_ios_new_FILL0_wght500_GRAD0_opsz24.svg" alt="Seta voltar">
             </a>
         </div>
@@ -43,11 +44,10 @@
     <script>
         function getMessages() {
             $.ajax({
-                type: "GET",
-                url: 'https://api-groupzy.herokuapp.com/messages.php',
+                type: 'GET',
+                url: API_URL + 'messages.php',
                 data: {
-                    idGroup: currentUser.idGroup,
-                    limit: 2
+                    idGroup: currentUser.idGroup
                 },
                 success: function (res) {
                     let messageHtml = ``;
@@ -90,8 +90,8 @@
             var message = $('input[name=message]').val();
             if (message != '' && message != ' ' && message != null) {
                 $.ajax({
-                    type: "POST",
-                    url: 'https://api-groupzy.herokuapp.com/messages.php/',
+                    type: 'POST',
+                    url: API_URL + 'messages.php',
                     data: {
                         content: message,
                         idUser: currentUser.id,
