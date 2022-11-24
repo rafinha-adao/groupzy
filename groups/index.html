@@ -22,7 +22,7 @@
                                 <h2>${group.title}</h2>
                             </div>
                             <div class="group-action">
-                                <button onclick="enterGroup(${group.id});">
+                                <button onclick="enterGroup('${group.id}');">
                                     <img src="../assets/img/login_FILL0_wght500_GRAD0_opsz24.svg" alt="Entrar">
                                 </button>
                             </div>
@@ -50,6 +50,7 @@
     </main>
     <script>
         function enterGroup(idGroup) {
+            sessionStorage.setItem('idGroup', idGroup);
             window.location = '/chat';
         }
     </script>

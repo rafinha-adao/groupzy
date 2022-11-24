@@ -138,7 +138,7 @@ textarea:focus {
   background-color: #FA7257;
 }
 
-.container-signup, .container-login, .container-profile {
+.container-signup, .container-login, .container-profile, .container-create-group, .container-edit-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -155,7 +155,7 @@ textarea:focus {
   margin: auto;
 }
 
-.container-signup form, .container-login form, .container-profile form {
+.container-signup form, .container-login form, .container-profile form, .container-create-group form, .container-edit-group form {
   max-width: 32rem;
   width: 90%;
   display: -webkit-box;
@@ -180,12 +180,12 @@ textarea:focus {
   border: 1px solid rgba(209, 213, 219, 0.3);
 }
 
-.container-signup form h1, .container-login form h1, .container-profile form h1 {
+.container-signup form h1, .container-login form h1, .container-profile form h1, .container-create-group form h1, .container-edit-group form h1 {
   font-size: 2.2rem;
   margin: 0 0 1rem 0;
 }
 
-.container-signup form .input-container, .container-login form .input-container, .container-profile form .input-container {
+.container-signup form .input-container, .container-login form .input-container, .container-profile form .input-container, .container-create-group form .input-container, .container-edit-group form .input-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -198,28 +198,28 @@ textarea:focus {
   width: 90%;
 }
 
-.container-signup form .input-container label, .container-login form .input-container label, .container-profile form .input-container label {
+.container-signup form .input-container label, .container-login form .input-container label, .container-profile form .input-container label, .container-create-group form .input-container label, .container-edit-group form .input-container label {
   margin: .45rem 0;
   font-size: .95rem;
   font-weight: 300;
 }
 
-.container-signup form .btn-container, .container-login form .btn-container, .container-profile form .btn-container {
+.container-signup form .btn-container, .container-login form .btn-container, .container-profile form .btn-container, .container-create-group form .btn-container, .container-edit-group form .btn-container {
   margin: 1.5rem 0;
   max-width: 22rem;
   width: 90%;
 }
 
-.container-signup form .btn-container button, .container-login form .btn-container button, .container-profile form .btn-container button {
+.container-signup form .btn-container button, .container-login form .btn-container button, .container-profile form .btn-container button, .container-create-group form .btn-container button, .container-edit-group form .btn-container button {
   width: 100%;
 }
 
-.container-signup form .btn-container button:hover, .container-login form .btn-container button:hover, .container-profile form .btn-container button:hover {
+.container-signup form .btn-container button:hover, .container-login form .btn-container button:hover, .container-profile form .btn-container button:hover, .container-create-group form .btn-container button:hover, .container-edit-group form .btn-container button:hover {
   -webkit-transform: translateY(-0.05rem);
           transform: translateY(-0.05rem);
 }
 
-.container-signup form a, .container-login form a, .container-profile form a {
+.container-signup form a, .container-login form a, .container-profile form a, .container-create-group form a, .container-edit-group form a {
   color: #5232C7;
 }
 
@@ -337,6 +337,7 @@ textarea:focus {
   -ms-flex-item-align: end;
       align-self: flex-end;
   border-radius: .25rem .25rem 0 .25rem;
+  cursor: pointer;
 }
 
 .chat-container #container-messages .other-message {

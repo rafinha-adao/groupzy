@@ -1,4 +1,4 @@
-let user = JSON.parse(sessionStorage.getItem('user'));
-if (user.idGroup == null) {
+var idGroup = JSON.parse(sessionStorage.getItem('idGroup'));
+if (idGroup == null) {
     window.location = '/groups';
 }

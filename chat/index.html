@@ -16,7 +16,7 @@
             type: 'GET',
             url: API_URL + 'groups.php',
             data: {
-                idGroup: currentUser.idGroup
+                idGroup: idGroup
             },
             success: function (res) {
                 $('#group-info').append(`<h1>${res[0].title}</h1>`);
@@ -29,7 +29,7 @@
 <body>
     <main class="chat-container">
         <div id="group-info">
-            <a href="/">
+            <a href="/groups">
                 <img src="../assets/img/arrow_back_ios_new_FILL0_wght500_GRAD0_opsz24.svg" alt="Seta voltar">
             </a>
         </div>
@@ -47,14 +47,14 @@
                 type: 'GET',
                 url: API_URL + 'messages.php',
                 data: {
-                    idGroup: currentUser.idGroup
+                    idGroup: idGroup
                 },
                 success: function (res) {
                     let messageHtml = ``;
                     res.forEach(message => {
                         if (message.idUser == parseInt(currentUser.id)) {
                             messageHtml += `
-                                <div class="message my-message">
+                                <div class="message my-message" onclick="if(confirm('Deseja mesmo excluir essa mensagem?')){deleteMessage(${message.id})};">
                                     <p>${message.content}</p>
                                 </div>
                             `;
@@ -95,13 +95,23 @@
                     data: {
                         content: message,
                         idUser: currentUser.id,
-                        idGroup: currentUser.idGroup
+                        idGroup: idGroup
                     }
                 });
                 document.getElementById('container-actions').reset();
                 getMessages();
             }
         });
+
+        function deleteMessage(idMessage) {
+            $.ajax({
+                type: 'GET',
+                url: API_URL + 'messages.php',
+                data: {
+                    idMessage: idMessage
+                }
+            });
+        }
     </script>
 </body>
 
