@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/styles/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../assets/js/env.js"></script>
-    <script src="../assets/js/auth.js"></script>
+    <script src="assets/js/env.js"></script>
+    <script src="assets/js/auth.js"></script>
     <script>
         let user = JSON.parse(sessionStorage.getItem('user'));
         if (user.hasGroup == "1") {
@@ -32,13 +33,13 @@
             </div>
             <div class="btn-container">
                 <button type="submit" id="btn-create">Criar</button>
-                <button onclick="window.location = '/index.html'" style="margin-top: .5rem;">Cancelar</button>
+                <button onclick="window.location = '../'" style="margin-top: .5rem;">Cancelar</button>
             </div>
         </form>
     </main>
     <script>
-
         $('#create-group').submit(function (e) {
+            e.preventDefault();
             $('#btn-create').attr("disabled", true);
             $('#btn-create').html('<img src="../assets/img/spinner-loading.svg">');
             $('#btn-create').css({
@@ -47,9 +48,6 @@
                 'align-content': 'center',
                 'justify-content': 'center'
             });
-
-            e.preventDefault();
-
             $.ajax({
                 type: 'POST',
                 url: API_URL + 'groups.php',
